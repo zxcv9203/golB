@@ -1,7 +1,16 @@
 * 👋 Hi, I’m yongckim
 
+[![](https://img.shields.io/badge/cadet-000000.svg?&style=?style=flat-square&logo=42)]()
+* 🤔 I'm interested...
 
-[![](https://img.shields.io/badge/뱃지레이블-배경색?style=뱃지모양&logo=로고&logoColor=로고색상)]()
+[![](https://img.shields.io/badge/Go-000000.svg?&style=?style=flat-square&logo=Go)]()
+[![](https://img.shields.io/badge/Kubernetes-000000.svg?&style=?style=flat-square&logo=Kubernetes)]()
+[![](https://img.shields.io/badge/Docker-000000.svg?&style=?style=flat-square&logo=docker)]()
+[![](https://img.shields.io/badge/GCP-000000.svg?&style=?style=flat-square&logo=google-cloud)]()
+[![](https://img.shields.io/badge/Jenkins-000000.svg?&style=?style=flat-square&logo=jenkins)]()
+[![](https://img.shields.io/badge/GithubActions-000000.svg?&style=?style=flat-square&logo=GitHub-Actions)]()
+[![](https://img.shields.io/badge/Prometheus-000000.svg?&style=?style=flat-square&logo=Prometheus)]()
+[![](https://img.shields.io/badge/Terraform-000000.svg?&style=?style=flat-square&logo=Terraform)]()
 
 
 
