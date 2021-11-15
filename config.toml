@@ -2,9 +2,9 @@ baseURL = "https://zxcv9203.github.io/"
 languageCode = "ko-kr"
 title = "yongckim"
 theme = "github-style"
-googleAnalytics = "UA-123456-789"
-pygmentsCodeFences = true
-pygmentsUseClasses = true
+#googleAnalytics = "UA-123456-789"
+#pygmentsCodeFences = true
+#pygmentsUseClasses = true
 
 [params]
   author = "yongckim"
