@@ -7,7 +7,7 @@ theme = "github-style"
 #pygmentsUseClasses = true
 
 [params]
-  author = "yongckim" # 이름
+  author = "zxcv9203's blog" # 이름
   description = "42 cadet" # 자기 소개
   github = "zxcv9203" # github 계정명
   linkedin = "yongckim" # linked in 계정명
@@ -17,7 +17,8 @@ theme = "github-style"
   rss = true
   lastmod = true
   userStatusEmoji = "😀"
-  favicon = "/images/github.png"
+  favicon = "/images/github.png" # 파비콘설정
+  avatar = "/images/stackoverflow.png" # 아바타 설정
   location = "Korea"
 
 #  [[params.links]] 링크 추가
