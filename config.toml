@@ -7,18 +7,18 @@ theme = "github-style"
 #pygmentsUseClasses = true
 
 [params]
-  author = "yongckim"
-  description = "42 cadet"
+  author = "yongckim" # 이름
+  description = "42 cadet" # 자기 소개
   github = "zxcv9203" # github 계정명
   linkedin = "yongckim" # linked in 계정명
-  email = "yongckim@student.42seoul.kr"
-  url = "https://zxcv9203.github.io/"
-  keywords = "blog, google analytics"
+  email = "yongckim@student.42seoul.kr" #이메일
+  url = "https://zxcv9203.github.io/" # 사이트 주소
+  keywords = "blog, google analytics" 
   rss = true
   lastmod = true
   userStatusEmoji = "😀"
   favicon = "/images/github.png"
-  location = "korea"
+  location = "Korea"
 
 #  [[params.links]] 링크 추가
 #    title = "Link"
