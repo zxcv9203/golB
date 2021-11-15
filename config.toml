@@ -1,4 +1,4 @@
-baseURL = "https://zxcv9203.github.io/"
+baseURL = "https://zxcv9203.github.io"
 languageCode = "ko-kr"
 title = "zxcv9203's blog"
 theme = "github-style"
@@ -12,7 +12,7 @@ theme = "github-style"
   github = "zxcv9203" # github 계정명
 #  linkedin = "yongckim" # linked in 계정명
   email = "yongckim@student.42seoul.kr" #이메일
-  url = "https://zxcv9203.github.io/" # 사이트 주소
+  url = "https://zxcv9203.github.io" # 사이트 주소
   keywords = "blog, google analytics" 
 #  rss = true
   lastmod = true
