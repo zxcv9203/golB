@@ -1,4 +1,4 @@
-baseURL = "https://yongckim.github.io/"
+baseURL = "https://zxcv9203.github.io/"
 languageCode = "ko-kr"
 title = "yongckim"
 theme = "github-style"
@@ -12,7 +12,7 @@ pygmentsUseClasses = true
   github = "zxcv9203" # github 계정명
   linkedin = "yongckim" # linked in 계정명
   email = "yongckim@student.42seoul.kr"
-  url = "https://yongckim.github.io/"
+  url = "https://zxcv9203.github.io/"
   keywords = "blog, google analytics"
   rss = true
   lastmod = true
