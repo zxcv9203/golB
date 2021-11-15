@@ -1,0 +1,32 @@
+baseURL = "https://yongckim.github.io/"
+languageCode = "ko-kr"
+title = "yongckim"
+theme = "github-style"
+googleAnalytics = "UA-123456-789"
+pygmentsCodeFences = true
+pygmentsUseClasses = true
+
+[params]
+  author = "yongckim"
+  description = "42 cadet"
+  github = "zxcv9203" # github 계정명
+  linkedin = "yongckim" # linked in 계정명
+  email = "yongckim@student.42seoul.kr"
+  url = "https://yongckim.github.io/"
+  keywords = "blog, google analytics"
+  rss = true
+  lastmod = true
+  userStatusEmoji = "😀"
+  favicon = "/images/github.png"
+  location = "korea"
+
+#  [[params.links]] 링크 추가
+#    title = "Link"
+#    href = "https://github.com/meik2333"
+#  [[params.links]]
+#    title = "Link2"
+#    href = "https://yongckim.github.io/"
+#   	icon = "https://meik2333.com/images/avatar.png"
+
+[frontmatter]
+  lastmod = ["lastmod", ":fileModTime", ":default"]
