@@ -1,5 +1,5 @@
 ---
-title: "title"
+title: "깃허브 블로그 생성"
 date: 2019-10-22T18:46:47+08:00
 draft: false
 summary: "블로그 생성"
