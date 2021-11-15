@@ -21,13 +21,14 @@ theme = "github-style"
   avatar = "/images/avatar.png" # 아바타 설정
   location = "Korea"
 
-#  [[params.links]] 링크 추가
-#    title = "Link"
-#    href = "https://github.com/meik2333"
-#  [[params.links]]
+  [[params.links]]
+    title = "algorithm"
+    href = "https://www.acmicpc.net/user/zxcv9203"
+		icon = "https://zxcv9203.github.io/images/boj.png"
+#  [[params.links]]  하단 아이콘 링크 추가
 #    title = "Link2"
 #    href = "https://yongckim.github.io/"
-#   	icon = "https://meik2333.com/images/avatar.png"
+#   	icon = "https://zxcv9203.github.io/images/avatar.png"
 
 [frontmatter]
   lastmod = ["lastmod", ":fileModTime", ":default"]
