@@ -6,7 +6,16 @@
     <description>Recent content in Posts on zxcv9203&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Wed, 17 Nov 2021 00:26:21 +0900</lastBuildDate><atom:link href="https://zxcv9203.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 17 Nov 2021 13:34:24 +0900</lastBuildDate><atom:link href="https://zxcv9203.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Hugo &#43; github 블로그 만들기 - 3</title>
+      <link>https://zxcv9203.github.io/post/hugo3/</link>
+      <pubDate>Wed, 17 Nov 2021 13:34:24 +0900</pubDate>
+      
+      <guid>https://zxcv9203.github.io/post/hugo3/</guid>
+      <description>Github 블로그 만들기와 Hugo를 이용한 정적 웹페이지 생성</description>
+    </item>
+    
     <item>
       <title>Hugo &#43; github 블로그 만들기 - 2</title>
       <link>https://zxcv9203.github.io/post/hugo2/</link>
@@ -18,10 +27,10 @@
     
     <item>
       <title>Hugo &#43; github 블로그 만들기 - 1</title>
-      <link>https://zxcv9203.github.io/post/test/</link>
+      <link>https://zxcv9203.github.io/post/hugo1/</link>
       <pubDate>Tue, 16 Nov 2021 16:34:33 +0900</pubDate>
       
-      <guid>https://zxcv9203.github.io/post/test/</guid>
+      <guid>https://zxcv9203.github.io/post/hugo1/</guid>
       <description>블로그를 시작하게 된 개기와 각 블로그의 비교, 많은 블로그 중에서 해당 블로그를 선택한 이유</description>
     </item>
     
