@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script type="application/javascript" src='https://zxcv9203.github.io/js/theme-mode.js'></script>
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/frameworks.min.css' />
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/github.min.css' />
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/github-style.css' />
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/light.css' />
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/dark.css' />
+    <link rel="stylesheet" href='https://zxcv9203.github.io/css/syntax.css' />
+    <title>Hugo &#43; github 블로그 만들기 - 2 - zxcv9203&#39;s blog</title>
+    
+    <link rel="icon" type="image/x-icon" href='/images/github.png'>
+    
+    <meta name="theme-color" content="#1e2327">
+
+    
+    <meta name="description"
+  content="github 블로그, 정적 웹사이트 생성기와 종류와 hugo를 선택한 이유" />
+<meta name="keywords"
+  content='blog, google analytics' />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="https://zxcv9203.github.io/post/hugo2/" />
+
+
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Hugo &#43; github 블로그 만들기 - 2 - zxcv9203&#39;s blog" />
+<meta name="twitter:description"
+  content="github 블로그, 정적 웹사이트 생성기와 종류와 hugo를 선택한 이유" />
+<meta name="twitter:site" content="https://zxcv9203.github.io" />
+<meta name="twitter:creator" content="" />
+<meta name="twitter:image"
+  content="https://zxcv9203.github.io">
+
+
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Hugo &#43; github 블로그 만들기 - 2 - zxcv9203&#39;s blog">
+<meta property="og:description"
+  content="github 블로그, 정적 웹사이트 생성기와 종류와 hugo를 선택한 이유" />
+<meta property="og:url" content="https://zxcv9203.github.io/post/hugo2/" />
+<meta property="og:site_name" content="Hugo &#43; github 블로그 만들기 - 2" />
+<meta property="og:image"
+  content="https://zxcv9203.github.io">
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+<meta property="article:published_time" content="2021-11-17 00:26:21 &#43;0900 KST" />
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body>
+  <div style="position: relative">
+  <header class="Header js-details-container Details px-3 px-md-4 px-lg-5 flex-wrap flex-md-nowrap open Details--on">
+    <div class="Header-item mobile-none" style="margin-top: -4px; margin-bottom: -4px;">
+      <a class="Header-link" href="https://zxcv9203.github.io">
+        <svg class="octicon" height="32" viewBox="0 0 16 16" version="1.1" width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item d-md-none">
+      <button class="Header-link btn-link js-details-target" type="button"
+        onclick="document.querySelector('#header-search').style.display = document.querySelector('#header-search').style.display == 'none'? 'block': 'none'">
+        <svg height="24" class="octicon octicon-three-bars" viewBox="0 0 16 16" version="1.1" width="24">
+          <path fill-rule="evenodd"
+            d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 110 1.5H1.75A.75.75 0 011 7.75zM1.75 12a.75.75 0 100 1.5h12.5a.75.75 0 100-1.5H1.75z">
+          </path>
+        </svg>
+      </button>
+    </div>
+    <div style="display: none;" id="header-search"
+      class="Header-item Header-item--full flex-column flex-md-row width-full flex-order-2 flex-md-order-none mr-0 mr-md-3 mt-3 mt-md-0 Details-content--hidden-not-important d-md-flex">
+      <div
+        class="Header-search header-search flex-auto js-site-search position-relative flex-self-stretch flex-md-self-auto mb-3 mb-md-0 mr-0 mr-md-3 scoped-search site-scoped-search js-jump-to">
+        <div class="position-relative">
+          <form target="_blank" action="https://www.google.com/search" accept-charset="UTF-8" method="get"
+            autocomplete="off">
+            <label
+              class="Header-search-label form-control input-sm header-search-wrapper p-0 js-chromeless-input-container header-search-wrapper-jump-to position-relative d-flex flex-justify-between flex-items-center">
+              <input type="text"
+                class="Header-search-input form-control input-sm header-search-input jump-to-field js-jump-to-field js-site-search-focus js-site-search-field is-clearable"
+                name="q" value="" placeholder="Search" autocomplete="off">
+              <input type="hidden" name="q" value="site:https://zxcv9203.github.io">
+            </label>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="Header-item Header-item--full flex-justify-center d-md-none position-relative">
+      <a class="Header-link " href="https://zxcv9203.github.io">
+        <svg class="octicon octicon-mark-github v-align-middle" height="32" viewBox="0 0 16 16" version="1.1"
+          width="32">
+          <path fill-rule="evenodd"
+            d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+          </path>
+        </svg>
+      </a>
+    </div>
+    <div class="Header-item" style="margin-right: 0;">
+      <a href="javascript:void(0)" class="Header-link no-select" onclick="switchTheme()">
+        <svg style="fill: var(--color-profile-color-modes-toggle-moon);" class="no-select" viewBox="0 0 16 16"
+          version="1.1" width="16" height="16">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M4.52208 7.71754C7.5782 7.71754 10.0557 5.24006 10.0557 2.18394C10.0557 1.93498 10.0392 1.68986 10.0074 1.44961C9.95801 1.07727 10.3495 0.771159 10.6474 0.99992C12.1153 2.12716 13.0615 3.89999 13.0615 5.89383C13.0615 9.29958 10.3006 12.0605 6.89485 12.0605C3.95334 12.0605 1.49286 10.001 0.876728 7.24527C0.794841 6.87902 1.23668 6.65289 1.55321 6.85451C2.41106 7.40095 3.4296 7.71754 4.52208 7.71754Z">
+          </path>
+        </svg>
+      </a>
+    </div>
+  </header>
+</div>
+  
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<div>
+  <main>
+    <div class="gisthead pagehead bg-gray-light pb-0 pt-3 mb-4">
+      <div class="px-0">
+        <div class="mb-3 d-flex px-3 px-md-3 px-lg-5">
+          <div class="flex-auto min-width-0 width-fit mr-3">
+            <div class="d-flex">
+              <div class="d-none d-md-block">
+                <a class="avatar mr-2 flex-shrink-0" href="https://zxcv9203.github.io">
+                  <img class=" avatar-user"
+                    src="/images/avatar.png"
+                    width="32" height="32"></a>
+              </div>
+              <div class="d-flex flex-column">
+                <h1 class="break-word f3 text-normal mb-md-0 mb-1">
+                  <span class="author">
+                    <a href="https://zxcv9203.github.io">yongckim</a></span><span
+                    class="path-divider">/</span><strong class="css-truncate-target mr-1" style="max-width: 410px"><a
+                      href="https://zxcv9203.github.io/post/hugo2/">Hugo &#43; github 블로그 만들기 - 2</a></strong>
+                </h1>
+                <div class="note m-0">
+                  Created <relative-time datetime="Wed, 17 Nov 2021 00:26:21 &#43;0900"
+                    class="no-wrap">
+                    Wed, 17 Nov 2021 00:26:21 &#43;0900</relative-time>
+
+                  
+                  <span class="file-info-divider"></span>
+                  Modified <relative-time datetime="Wed, 17 Nov 2021 11:46:16 &#43;0900"
+                    class="no-wrap">
+                    Wed, 17 Nov 2021 11:46:16 &#43;0900</relative-time>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-lg px-3 new-discussion-timeline">
+      <div class="repository-content gist-content">
+        <div>
+          <div class="js-gist-file-update-container js-task-list-container file-box">
+            <div id="file-pytest" class="file my-2">
+              <div id="post-header" class="file-header d-flex flex-md-items-center flex-items-start sticky-header">
+                <div class="file-info d-flex flex-md-items-center flex-items-start flex-order-1 flex-auto">
+                  <div class="text-mono f6 flex-auto pr-3 flex-order-2 flex-md-order-1 mt-2 mt-md-0">
+                    
+                    <summary id="toc-toggle" class="btn btn-octicon m-0 mr-2 p-2" aria-haspopup="menu" aria-label="Table of Contents" role="button">
+                      <svg aria-hidden="true" viewBox="0 0 16 16" height="16" width="16" class="octicon octicon-list-unordered">
+                        <path fill-rule="evenodd" d="M2 4a1 1 0 100-2 1 1 0 000 2zm3.75-1.5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zm0 5a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5zM3 8a1 1 0 11-2 0 1 1 0 012 0zm-1 6a1 1 0 100-2 1 1 0 000 2z"></path>
+                      </svg>
+                    </summary>
+                          1897 Words
+                    
+
+                  </div>
+                  <div class="file-actions flex-order-2 pt-0">
+                    
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="Box-body px-5 pb-5">
+                <article class="markdown-body entry-content container-lg"><h1 id="github-블로그란">github 블로그란?</h1>
+<p>Github 블로그란 Github 저장소에 저장된 html 파일과 같은 정적 웹 문서들을 Github 에서 무료로 웹에서 볼 수 있도록 호스팅 서비스를 제공해 주는 것입니다.</p>
+<p>Github를 이용하는 사용자들은 누구나 고유의 정적 웹 사이트 1개를 가질 수 있습니다.</p>
+<p>Github 블로그를 만들기 위해서는 신규 repository의 이름을 <code>&lt;Github id&gt;.github.io</code> 으로 만들면 됩니다.</p>
+<h1 id="사이트-꾸미기">사이트 꾸미기</h1>
+<p>Github 블로그를 만드는 것 자체는 간단했지만 막상 꾸미려고 하니 HTML/CSS에 대한 지식이 없어 블로그를 제대로 사용할 수 없었습니다.</p>
+<p>그래서 구글링을 통해 방법을 찾아보던중 정적 웹사이트 생성기에 대한 내용을 찾게 되었고 Github 블로그를 사용할 때 많이 사용한다는 것을 알게 되었습니다.</p>
+<h1 id="-정적-사이트-생성기">🌐 정적 사이트 생성기?</h1>
+<h2 id="-정적-사이트">🌐 정적 사이트?</h2>
+<p>정적 사이트 생성기에 대해 알아보기 전에 먼저 정적 사이트란 것 조차 잘 몰랐기 때문에 먼저 해당 내용을 찾아보았습니다.</p>
+<p>정적 사이트는 정적 페이지로 이루어진 사이트를 의미한다는 것을 알게 되었습니다.</p>
+<h3 id="-정적-페이지와-동적-페이지">🌐 정적 페이지와 동적 페이지</h3>
+<p>그렇다면 정적 페이지는 무엇일까요?</p>
+<p>정적 페이지란 서버에 미리 저장된 파일(HTML 파일, image 파일, JavaScript 파일)이 그대로 전달되는 웹 페이지를 의미합니다.</p>
+<p>서버는 사용자(클라이언트)가 요청을 보내면 요청에 해당하는 웹 페이지를 보냅니다.</p>
+<p>그래서 사용자는 서버에 저장된 파일이 변하지 않는 이상 고정된 웹 페이지를 보게 됩니다.</p>
+<p>그렇다면 정적 페이지를 사용했을 때 장 단점은 무엇이 있을까요?</p>
+<p>정적 페이지의 장점은 다음과 같습니다.</p>
+<ul>
+<li>
+<p>요청에 대한 파일만 전송하면 되기 때문에 빠른 속도로 요청이 처리됩니다.</p>
+</li>
+<li>
+<p>단순한 파일들로만 이루어져 있어 어떤 호스팅 서버에서도 동작 가능하므로 구축하는데 드는 비용이 적습니다.</p>
+</li>
+</ul>
+<p>정적 페이지의 단점은 다음과 같습니다.</p>
+<ul>
+<li>
+<p>요청받은 웹 페이지를 보내주는 것이기 때문에 서비스가 한정적입니다.</p>
+</li>
+<li>
+<p>웹 페이지에 기능을 추가, 수정, 삭제하는 것이 수동으로 이루어지기 때문에 관리가 힘듭니다.</p>
+</li>
+</ul>
+<p>이에 반해 동적 페이지는 사용자가 정보를 요청하면 해당 요청을 처리하여 가공한 결과물에 해당하는 웹 페이지를 보내게 됩니다.</p>
+<p>사용자는 같은 페이지라도 상황, 시간, 요청 등에 따라 달라지는 웹 페이지를 보게 됩니다.</p>
+<p>동적 페이지는 다음과 같은 장점을 가지고 있습니다.</p>
+<ul>
+<li>
+<p>사용자로 부터 받은 요청을 다양한 정보를 조합하여 웹 페이지를 제공하기 때문에 서비스가 정적 페이지보다 다양합니다.</p>
+</li>
+<li>
+<p>웹 사이트 구조에 따라서 추가, 수정, 삭제를 사용자가 할 수 있기 때문에 관리가 쉽습니다.</p>
+</li>
+</ul>
+<p>동적 페이지는 다음과 같은 단점을 가지고 있습니다.</p>
+<ul>
+<li>
+<p>사용자에게 웹 페이지를 전달하기 전에 처리하는 작업이 필요하기 때문에 상대적으로 느립니다.</p>
+</li>
+<li>
+<p>웹 서버에 이외에 추가적으로 처리를 위한 어플리케이션 서버(WAS)가 필요하기 때문에 추가 비용이 들 수 있습니다.</p>
+</li>
+</ul>
+<p>그렇다면 정적 페이지로 구성하는게 좋을까요? 동적 페이지로 구성하는게 좋을까요?</p>
+<p>자주 변경되지 않는 페이지 같은 경우에는 비용과 속도 측면에서 더 뛰어난 정적페이지로 사이트를 구성하는 것이 좋습니다. 블로그 같은 경우 요청을 받아 따로 처리할 필요가 없으므로 정적 페이지로 사이트를 구성해도 충분합니다.</p>
+<h2 id="-다시-본론으로-돌아가서-정적-사이트-생성기란">🔙 다시 본론으로 돌아가서 정적 사이트 생성기란?</h2>
+<p>정적 사이트 생성기란 말 그대로 정적인 웹 사이트를 생성해주는 툴입니다.</p>
+<p>일반적으로 마크다운 파일을 읽어 HTML을 생성하는 기능을 가집니다.</p>
+<p>워드프레스 같은 경우 서버와 데이터베이스를 이용해 사용자가 페이지를 방문할 때마다 동적으로 웹 페이지를 생성한다면 정적 생성기는 미리 HTML을 생성해 서버에서는 해당 파일을 제공하도록 하면 됩니다.</p>
+<p>정적 사이트 생성기를 이용해 웹 사이트를 이용하면 서버나 데이터베이스를 관리해야 하는 부담이 적어지고 이미 만들어져 있는 페이지만 제공하면 되니 빠른 웹 페이지 로딩이 가능하다는 장점이 있습니다.</p>
+<p>대표적인 정적 사이트 생성기는 Jekyll, Hugo, Gatsby 등이 있습니다.</p>
+<h2 id="대표적인-정적-사이트-생성기">대표적인 정적 사이트 생성기</h2>
+<ul>
+<li>
+<p>Jeklly</p>
+<p>Ruby로 제작된 정적 사이트 생성기이며 가장 유명하고 많이 사용되는 생성기 입니다.</p>
+<p>장점은 많이 사용되는 만큼 테마나 플러그인 등이 제일 많이 있습니다.</p>
+<p>단점은 빌드할 페이지의 수가 많아질수록 기하급수적으로 빌드 속도가 느려집니다.</p>
+</li>
+<li>
+<p>Hugo</p>
+<p>go로 제작된 정적 사이트 생성기이며 현재 가장 많은 스타수를 보유하고 있습니다.</p>
+<p>장점은 정적 사이트 생성기 중에서 가장 빠른 빌드 속도를 목표로 삼은 만큼 빌드 속도가 빠릅니다.</p>
+<p>단점은 한글로 되어있는 문서가 적습니다.</p>
+</li>
+<li>
+<p>Gatsby</p>
+<p>React와 Graphql을 사용하는 정적페이지 생성기입니다. Gatsby JS는 가공할 정보를 GraphQL에서 가져와서 빌드 시점에 정적 페이지를 만들어 내는 방식을 가지고 있습니다.</p>
+<p>장점은 더 빠르고 안전한 콘텐츠 제공이 가능합니다.</p>
+<p>단점은 서비스가 커질수록 빌드시간이 늘어납니다.</p>
+</li>
+</ul>
+<h1 id="hugo를-선택한-이유">Hugo를 선택한 이유</h1>
+<p>Hugo는 정적 사이트 생성기 중에서 가장 빠른 빌드를 목표로 삼은 만큼 빌드 속도가 매우 빠르기 때문에 선택했고 또한 Go언어에 관심이 많기 때문에 Go를 사용한다는 것에 부담이 없었습니다.</p>
+<p>이러한 이유로 Hugo를 선택하게 되었습니다.</p>
+</article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+<script>
+ 
+ 
+ 
+ window.onload = function () {
+   const header = document.getElementById('post-header');
+   const headerHeight = header.offsetHeight;
+   
+   document.documentElement.style.scrollPaddingTop = headerHeight + 10 + "px";
+ }
+
+ const tocToggleButton = document.getElementById("toc-toggle");
+
+ const tippyInstance = tippy('#toc-toggle', {
+  trigger: 'click',
+  content: '<div id="table-of-contents">\u003cnav id=\u0022TableOfContents\u0022\u003e\n  \u003cul\u003e\n    \u003cli\u003e\u003ca href=\u0022#-정적-사이트\u0022\u003e🌐 정적 사이트?\u003c\/a\u003e\n      \u003cul\u003e\n        \u003cli\u003e\u003ca href=\u0022#-정적-페이지와-동적-페이지\u0022\u003e🌐 정적 페이지와 동적 페이지\u003c\/a\u003e\u003c\/li\u003e\n      \u003c\/ul\u003e\n    \u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#-다시-본론으로-돌아가서-정적-사이트-생성기란\u0022\u003e🔙 다시 본론으로 돌아가서 정적 사이트 생성기란?\u003c\/a\u003e\u003c\/li\u003e\n    \u003cli\u003e\u003ca href=\u0022#대표적인-정적-사이트-생성기\u0022\u003e대표적인 정적 사이트 생성기\u003c\/a\u003e\u003c\/li\u003e\n  \u003c\/ul\u003e\n\u003c\/nav\u003e</div>',
+  allowHTML: true,
+  placement: 'bottom-start',
+  interactive: true,
+  arrow: false,
+  maxWidth: "none",
+  onHide: function () { tocToggleButton.classList.remove("hover"); },
+  onShow: function () { tocToggleButton.classList.add("hover"); },
+  onShown: function () {
+    selectTableOfContentsOption();
+
+    if (window.hasSetupTableOfContentsListeners) {
+      return;
+    }
+
+    const tableOfContents = document.getElementById("table-of-contents");
+    tableOfContents.addEventListener('click', function () {
+      
+      tippyInstance[0].hide();
+    });
+
+    window.hasSetupTableOfContentsListeners = true;
+  }
+ });
+
+ function selectTableOfContentsOption () {
+   const optionSelectedClass = 'table-of-contents-option-selected';
+
+   const tableOfContentsOptions = document.querySelectorAll("#table-of-contents > nav > ul li");
+
+   for (const option of tableOfContentsOptions) {
+     
+
+     const [child] = option.children;
+     if (child.tagName.toLowerCase() !== 'a') {
+       continue;
+     }
+
+     if (window.location.href === child.href) {
+       child.classList.add(optionSelectedClass);
+     } else {
+       child.classList.remove(optionSelectedClass);
+     }
+   }
+ }
+
+ window.onhashchange = selectTableOfContentsOption;
+</script>
+
+
+  <div class="footer container-xl width-full p-responsive">
+  <div
+    class="position-relative d-flex flex-row-reverse flex-lg-row flex-wrap flex-lg-nowrap flex-justify-center flex-lg-justify-between flex-sm-items-center pt-6 pb-2 mt-6 f6 text-gray border-top border-gray-light ">
+    <a aria-label="Homepage" title="GitHub" class="footer-octicon d-none d-lg-block mr-lg-4" href="https://zxcv9203.github.io">
+      <svg height="24" class="octicon octicon-mark-github" viewBox="0 0 16 16" version="1.1" width="24">
+        <path fill-rule="evenodd"
+          d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z">
+        </path>
+      </svg>
+    </a>
+    <ul class="list-style-none d-flex flex-wrap col-12 flex-justify-center flex-lg-justify-between mb-2 mb-lg-0">
+      
+      <li class="mr-3 mr-lg-0">Theme by <a href='https://github.com/MeiK2333/github-style'>github-style</a></li>
+      
+    </ul>
+  </div>
+  <div class="d-flex flex-justify-center pb-6">
+    <span class="f6 text-gray-light"></span>
+  </div>
+
+
+</div>
+</body>
+
+<script type="application/javascript" src="https://zxcv9203.github.io/js/github-style.js"></script>
+
+
+
+</html>
