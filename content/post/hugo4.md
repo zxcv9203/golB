@@ -50,7 +50,7 @@ public/
 
 6. 이제 깃허브에 루트 디렉터리와 public 디렉터리의 내용을 푸쉬한다
 
-```
+``` shell
 git add .
 git commit -m "init" 
 git push origin master
@@ -60,3 +60,100 @@ git commit -m "init"
 git push origin master
 ```
 
+7. 블로그에 접속 후 일정 시간이 지나면 배포가되는 것을 확인할 수 있습니다.
+
+# 블로그에 글 포스팅해보기
+
+이제 깃허브 블로그를 만들었으니 블로그에 글을 포스팅해봅시다.
+
+기본적으로 마크다운 문법을 사용하여 블로그글을 작성하게 됩니다.
+
+github-style 테마 기준으로 포스팅하는 법을 작성하겠습니다.
+
+## 깃허브 테마 Readme 만들기
+
+깃허브 테마 같은 경우 깃허브 Readme.md를 만들면 실제 깃허브처럼 꾸밀 수 있기 때문에 Readme 먼저 작성해보겠습니다.
+
+1. 다음 명령어로 readme.md를 생성합니다.
+
+``` shell
+hugo new readme.md
+```
+
+2. content 디렉터리에 존재하는 readme.md를 원하는 대로 수정합니다.
+
+3. 다음 명령어로 로컬에서 원하는데로 만들어 졌는지 확인합니다. (명령어 입력후 localhost:1313으로 접속)
+
+``` shell
+# hugo server -t <theme>
+hugo server -t github-style
+```
+
+4. localhost:1313으로 접속해서 확인해보면 잘 나오는 것을 확인할 수 있습니다.
+
+## 배포 자동화시키기 
+
+현재 같은 경우 루트 디렉터리를 저장하는 레포지터리와 실제 정적 페이지가 저장되어있는 public 디렉터리로 이루어진 레포지터리 두개가 존재하며 변경사항이 있을때마다 hugo 명령으로 계속 변환을 해주어야 합니다.
+
+이렇게 명령들을 여러차례 입력해야 하기 때문에 이 과정을 쉘 하나로 자동화시킬 수 있도록 만들어봅시다.
+
+1. deploy.sh 이라는 이름의 쉘 파일 하나를 만듭니다.
+
+``` shell
+touch deploy.sh
+```
+
+2. 다음과 같이 작성합니다.
+
+``` bash
+#!/bin/bash
+
+echo -e "\033[0;32mDeploying updates to GitHub...\033[0m"
+
+# Build the project.
+# hugo -t <your theme>
+hugo -t github-style
+
+# Go To Public folder, sub module commit
+cd public
+# Add changes to git.
+git add .
+
+# Commit changes.
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+git commit -m "$msg"
+
+# Push source and build repos.
+git push origin master
+
+# Come Back up to the Project Root
+cd ..
+
+
+# blog 저장소 Commit & Push
+git add .
+
+msg="rebuilding site `date`"
+if [ $# -eq 1 ]
+  then msg="$1"
+fi
+git commit -m "$msg"
+
+git push origin master
+```
+
+3. deploy.sh을 실행시키면 배포가 자동으로 이루어집니다.
+
+``` shell
+bash deploy.sh
+# or
+chmod deploy.sh 744 deploy.sh
+./deploy.sh
+```
+
+## 블로그 글 작성하기
+
+이제 배포 자동화도 했고 메인화면도 꾸몄으니 진짜로 블로그글을 작성해봅시다.
