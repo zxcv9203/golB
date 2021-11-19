@@ -156,5 +156,50 @@ chmod deploy.sh 744 deploy.sh
 
 ## 블로그 글 작성하기
 
-이제 배포 자동화도 했고 메인화면도 꾸몄으니 진짜로 블로그글을 작성해봅시다.
+이제 배포 자동화도 했고 메인화면도 꾸몄으니 블로그글을 작성해봅시다.
 
+github-style 기준입니다.
+
+1. 블로그 디렉터리의 루트에 있는 `posts` 폴더를 `post` 폴더로 이름을 변경합니다.
+
+```shell
+mv posts post
+```
+
+2. hugo 명령을 통해 블로그에 포스팅할 페이지를 생성합니다.
+
+```shell
+#hugo new post/<파일이름.md>
+hugo new post/first.md
+```
+
+3. `post/<파일이름>.md`를 열고 글을 작성합니다. github-style 테마의 경우 다음과 같이 draft의 값을 변경하고 summary를 추가해야합니다. (하지 않을 경우 글을 볼 수 없음)
+
+```markdown
+title: "제목"
+date: 2021-11-17T13:34:24+09:00
+draft: false
+summary: "설명"
+```
+
+
+4. 작성을 완료하면 블로그에 올리기 전에 로컬에서 확인하기 위해 다음 명령을 사용합니다.
+
+```shell
+#hugo server -t <theme>
+hugo server -t github-style
+```
+
+5. localhost:1313에 들어가서 확인했을 때 문제가 없다면 이전에 만든 배포 쉘을 이용해 블로그 글을 배포하고 잠시 기다린 후 글이 올라왔는지 확인합니다.
+
+```shell
+bash deploy.sh
+# or
+./deploy.sh
+```
+
+6. 블로그 글이 잘 추가된 것을 볼 수 있습니다.
+
+# 🎉 깃허브 블로그 글을 배포 완료했습니다 🎉
+
+이제 깃허브 블로그를 사용하여 글을 작성하면 됩니다.
