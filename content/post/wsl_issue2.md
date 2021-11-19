@@ -39,5 +39,8 @@ sudo apt -y install chrony
 
 2. 다음 명령어로 chrony 서비스를 킵니다.
 
+``` shell
+sudo service chrony start
+```
 
 참고 :  https://wslhub.com/wsl-firststep/troubleshoot/timesync/
