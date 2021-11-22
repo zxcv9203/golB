@@ -1,5 +1,5 @@
 ---
-title: "[DataStructure]ArrayList - 1"
+title: "[DataStructure]Array List - 1"
 date: 2021-11-22T21:29:00+09:00
 draft: false
 summary: "배열과 리스트란?"
