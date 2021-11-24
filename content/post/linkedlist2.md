@@ -2,7 +2,7 @@
 title: "[DataStructure]Linked List - 2"
 date: 2021-11-24T15:28:18+09:00
 draft: false
-summary : "Linked List의 구현"
+summary : "Singly Linked List의 구현"
 ---
 
 # Linkded List 구현 함수

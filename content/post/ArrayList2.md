@@ -523,7 +523,7 @@ int getArrayListLength(ArrayList* pList)
 1. pList가 NULL인지 확인하고 NULL이라면 NULL을 반환합니다.
 	``` c
 	if (pList == NULL)
-		return (NULL);
+		return (0);
 	```
 
 2. 현재 Array에 들어있는 Element의 개수를 반환합니다.
