@@ -53,3 +53,26 @@ X X X X X X X X X X
 그렇기 때문에 인덱스 접근이 불가능하고 다음 값이 어디 존재하는지 가르키고 있어야 합니다.
 
 하지만 데이터를 추가하고 삭제할 때 인접한 데이터가 가르키는 주소만 변경하면 되기 때문에 해제하고 재할당한 후 각각의 Element를 복사해야 하는 Array List보다 추가 / 삭제가 빠릅니다.
+
+|  | 추가 / 삭제 | 데이터 조회 |
+| --- | --- | --- |
+| Array List | 느림 | 빠름 |
+| Linked List | 빠름 | 느림 |
+
+## Linked List in c
+
+Linked List는 다음과 같은 형태로 구현하였습니다.
+
+``` c
+typedef struct ListNodeType
+{
+	int data;					// Element
+	struct ListNodeType* pLink;	// 다음 Element의 위치
+} ListNode;
+
+typedef struct LinkedListType
+{
+	int currentElementCount;	// 현재 Element의 개수
+	ListNode headerNode;		// Element의 다음 주소를 가르키는 포인터
+} LinkedList;
+```
