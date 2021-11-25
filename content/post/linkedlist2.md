@@ -5,7 +5,7 @@ draft: false
 summary : "Singly Linked List의 구현"
 ---
 
-# Linkded List 구현 함수
+# Linked List 구현 함수
 
 LinkedList* createLinkedList()
 
