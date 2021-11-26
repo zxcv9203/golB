@@ -303,14 +303,103 @@ void clearDoublyList(DoublyList* pList)
 	}
 
 ## int getDoublyListLength(DoublyList* pList)
-
-
+현재 노드의 개수를 반환하는 함수입니다.
+```c
+int getDoublyListLength(DoublyList* pList)
+{
+	if (pList == NULL)
+		return (FALSE);
+	return (pList->currentElementCount);
+}
+```
 ### 함수 흐름
+1. 전달받은 Double Linked List가 NULL이라면 FALSE(0)을 반환합니다.
+	``` c
+	if (pList == NULL)
+		return (FALSE);
+2. 현재 노드의 개수를 반환합니다.
+	``` c
+	return (pList->currentElementCount);
 
 ## DoublyListNode* getDLElement(DoublyList* pList, int position)
+Double Linked List의 position 위치의 노드를 반환합니다.
 
+``` c
+	DoublyListNode *node;
+	
+	if (pList == NULL)
+		return (FALSE);
+	if (position >= pList->currentElementCount || position < 0)
+		return (FALSE);
+	if (pList->currentElementCount / 2 <= position)
+	{
+		node = pList->headerNode.pLLink;
+		while (position--)
+			node = node->pLLink;
+	}
+	else
+	{
+		node = pList->headerNode.pRLink;
+		while (position--)
+			node = node->pRLink;
+	}
+	return (node);
+```
 ### 함수 흐름
-
+1. 매개변수로 받은 Double Linked List가 NULL이라면 FALSE(0)를 반환합니다.
+	``` c
+	if (pList == NULL)
+		return (FALSE);
+2. 가져올 노드의 위치가 현재 노드의 개수를 넘어가거나 음수라면 FALSE를 반환합니다.
+	``` c
+	if (position >= pList->currentElementCount || position < 0)
+		return (FALSE);
+3. 가져올 위치가 현재 노드의 개수 / 2보다 크면 뒤에서 탐색하는게 더 빠르므로 뒤에서 부터 탐색합니다.
+	``` c
+	if (pList->currentElementCount / 2 <= position)
+	{
+		node = pList->headerNode.pLLink;
+		while (position--)
+			node = node->pLLink;
+	}
+4. 가져올 위치의 노드가 현재 노드의 개수 / 2 보다 작다면 앞에서 부터 탐색하는 게 더 빠르므로 앞에서 부터 탐색합니다.
+	``` c
+	else
+	{
+		node = pList->headerNode.pRLink;
+		while (position--)
+			node = node->pRLink;
+	}
+5. 해당 위치의 노드를 반환합니다.
+	``` c
+	return (node);
 ## void displayDoublyList(DoublyList* pList)
+Double List의 노드들을 출력해줍니다.
+``` c
+	DoublyListNode *node;
 
+	if (pList == NULL)
+		return ;
+	node = pList->headerNode.pRLink;
+	while (node && node != &pList->headerNode)
+	{
+		printf("prev : %p, node : %p, node->data : %d, next : %p\n", 
+				node->pLLink, node, node->data, node->pRLink);
+		node = node->pRLink;
+	}
+```
 ### 함수 흐름
+
+1. 매개변수로 전달받은 Double Linked List가 NULL이라면 함수를 종료합니다.
+	``` c
+	if (pList == NULL)
+		return ;
+2. 노드의 이전 주소, 노드의 현재 주소, 노드의 현재 주소의 data, 노드의 다음주소에 대한 내용을 노드가 끝날때까지 출력해줍니다.
+	``` c
+	node = pList->headerNode.pRLink;
+	while (node && node != &pList->headerNode)
+	{
+		printf("prev : %p, node : %p, node->data : %d, next : %p\n", 
+				node->pLLink, node, node->data, node->pRLink);
+		node = node->pRLink;
+	}
