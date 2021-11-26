@@ -21,7 +21,7 @@ int removeDLElement(DoublyList* pList, int position);
 * Double Linked list의 포지션 위치의 값을 삭제합니다.
 
 void clearDoublyList(DoublyList* pList);
-* Double linked list의 data를 초기화합니다.
+* Double linked list의 노드들을 삭제합니다.
 
 int getDoublyListLength(DoublyList* pList);
 * Double Linked list의 현재 길이를 가져옵니다.
@@ -198,13 +198,112 @@ int addDLElement(DoublyList* pList, int position, DoublyListNode element)
 	return (TRUE);
 ## int removeDLElement(DoublyList* pList, int position)
 
+Double Linked list의 포지션 위치의 값을 삭제합니다.
+
+```c
+int removeDLElement(DoublyList* pList, int position)
+{
+	DoublyListNode *node;
+	DoublyListNode *prev;
+	DoublyListNode *next;
+	int				i;
+
+	i = 0;
+	if (pList == NULL)
+		return (FALSE);
+	if (position >= pList->currentElementCount || position < 0)
+		return (FALSE);
+	prev = &pList->headerNode;
+	while (i++ < position && prev->pRLink)
+		prev = prev->pRLink;
+	node = prev->pRLink;
+	next = node->pRLink;
+	next->pLLink = prev;
+	prev->pRLink = next;
+	free(node);
+	pList->currentElementCount--;
+	return (TRUE);
+}
+```
 ### 함수 흐름
-
+1. 매개변수로 받은 Double Linked List가 NULL이라면 FALSE(0)를 리턴합니다
+	``` c
+	if (pList == NULL)
+		return (FALSE);
+2. 삭제할 위치가 노드의 개수를 넘어가거나 음수라면 FALSE(0)를 리턴합니다.
+	``` c
+	if (position >= pList->currentElementCount || position < 0)
+		return (FALSE);
+3. 지우려고 하는 노드 전까지 이동합니다.
+	``` c
+	prev = &pList->headerNode;
+	while (i++ < position && prev->pRLink)
+		prev = prev->pRLink;
+4. 지우려는 노드를 node에 가르킵니다.
+	``` c
+	node = prev->pRLink;
+5. 지우려는 노드의 다음 주소를 next에 가르킵니다.
+	```c
+	next = node->pRLink;
+6. next가 이전 노드의 주소를 prev로 변경합니다.
+	``` c
+	next->pLLink = prev;
+7. prev의 다음 노드의 주소를 next로 변경합니다.
+	``` c
+	prev->pRLink = next;
+8. node 삭제전 안에 있는 데이터를 초기화 시킵니다.
+	``` c
+	node->pLLink = NULL;
+	node->pRLink = NULL;
+	node->data = 0;
+9. node의 메모리 할당을 해제하고 Double Linked List의 현재 노드의 개수를 1 감소시키고 TRUE를 반환합니다.
+	``` c
+	free(node);
+	pList->currentElementCount--;
+	return (TRUE);
 ## void clearDoublyList(DoublyList* pList)
+Double linked list의 노드들을 삭제하는 함수입니다.
 
+``` c
+void clearDoublyList(DoublyList* pList)
+{
+	DoublyListNode *node;
+	int				i;
+
+	if (pList == NULL)
+		return ;
+	i = pList->currentElementCount;
+	node = pList->headerNode.pRLink;
+	while (i--)
+	{
+		node->data = 0;
+		pList->currentElementCount--;
+		node = node->pRLink;
+	}
+}
+```
 ### 함수흐름
+1. 매개변수로 받은 Double Linked List가 NULL이라면 함수를 종료합니다.
+	``` c
+	if (pList == NULL)
+		return ;
+2. node를 순회하면서 0으로 하나씩 초기화합니다.
+	``` c
+	i = pList->currentElementCount; // 현재 노드의 개수
+	node = pList->headerNode.pRLink; // 첫번째 노드
+	while (i--) // 노드의 개수가 0이될때까지(노드를 다탐색하게 됨)
+	{
+		prev = node; // 현재노드를 prev에 저장
+		node = node->pRLink; // 노드를 다음노드로 이동
+		prev->pLLink = NULL; // 값을 0으로 초기화
+		prev->pRLink = NULL; // 값을 0으로 초기화
+		prev->data = 0; // 값을 0으로 초기화
+		pList->currentElementCount--; // 현재 노드의 개수 1 감소
+		free(prev); // 이전노드 메모리 할당 해제
+	}
 
 ## int getDoublyListLength(DoublyList* pList)
+
 
 ### 함수 흐름
 
